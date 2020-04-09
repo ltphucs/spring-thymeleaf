@@ -1,8 +1,10 @@
 package com.cg.maven.tutorial.controller;
 
 import com.cg.maven.tutorial.model.Customer;
-import com.cg.maven.tutorial.service.CustomerServiceImpl;
+import com.cg.maven.tutorial.service.CustomerService;
+import com.cg.maven.tutorial.service.Implement.CustomerServiceImpl;
 import com.cg.maven.tutorial.service.IService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +21,8 @@ public class HomeController {
         return  "demo";
     }
 
-    private IService customerService = new CustomerServiceImpl();
+    @Autowired
+    public CustomerService customerService;
 
     @GetMapping("/customers")
     public String index(Model model){
@@ -36,7 +39,6 @@ public class HomeController {
 
     @PostMapping("/customer/add")
     public String save(Customer customer, RedirectAttributes redirectAttributes){
-        customer.setId((long)(Math.random()*1000));
         customerService.save(customer);
         redirectAttributes.addFlashAttribute("success","Save customer successfully !");
         return "redirect:/customers";

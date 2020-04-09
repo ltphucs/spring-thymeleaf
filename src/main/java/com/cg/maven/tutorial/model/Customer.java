@@ -1,6 +1,12 @@
 package com.cg.maven.tutorial.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "customers")
 public class Customer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     private String email;
@@ -9,8 +15,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(long id, String name, String email, String address) {
-        this.id = id;
+    public Customer(String name, String email, String address) {
         this.name = name;
         this.email = email;
         this.address = address;
