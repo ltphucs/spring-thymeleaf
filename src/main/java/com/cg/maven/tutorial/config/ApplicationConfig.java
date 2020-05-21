@@ -107,9 +107,9 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
         //dataSource.setPassword("1qaz0plm");
 
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgres://localhost:5432/demo");
-        dataSource.setUsername("postgre");
-        dataSource.setPassword("postgre");
+        dataSource.setUrl("jdbc:postgres://pfoqjdqoajfqly:f297d5cdf373162afb217aa05b91af0085eeb1b351d80ca13ed86579dc364897@ec2-46-137-84-140.eu-west-1.compute.amazonaws.com:5432/dfrhe89968gkf0");
+        dataSource.setUsername("pfoqjdqoajfqly");
+        dataSource.setPassword("f297d5cdf373162afb217aa05b91af0085eeb1b351d80ca13ed86579dc364897");
 
         return  dataSource;
     }
