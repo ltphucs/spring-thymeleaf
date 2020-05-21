@@ -80,8 +80,8 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     //JPA CONFIGURATION
     Properties additionalProperties(){
         Properties properties = new Properties();
-        properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-        //properties.setProperty("hibernate.hbm2dll.auto","update");
+        //properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
+        properties.setProperty("hibernate.hbm2ddl.auto","update");
         properties.setProperty("hibernate.connection.useUnicode","true");
         properties.setProperty("hibernate.connection.characterEncoding","UTF-8");
         properties.setProperty("hibernate.connection.charset","UTF-8");
@@ -100,7 +100,7 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/cgtutorial?useUnicode=true&characterEncoding=UTF-8");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/demojpa?useUnicode=true&characterEncoding=UTF-8");
         dataSource.setUsername("root");
         dataSource.setPassword("1qaz0plm");
         return  dataSource;

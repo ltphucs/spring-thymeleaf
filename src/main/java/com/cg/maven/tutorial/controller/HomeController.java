@@ -44,4 +44,12 @@ public class HomeController {
         return "redirect:/customers";
     }
 
+
+    @GetMapping("/hello")
+    public  String hello(Model model){
+        model.addAttribute("fullname", "LE TUONG PHUC");
+        model.addAttribute("facebook", "www.dantri.com.vn");
+        return "hello";
+    }
+
 }
