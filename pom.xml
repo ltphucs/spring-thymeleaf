@@ -110,7 +110,12 @@
       <artifactId>hibernate-entitymanager</artifactId>
       <version>5.4.12.Final</version>
     </dependency>
-
+    <dependency>
+      <groupId>com.heroku</groupId>
+      <artifactId>webapp-runner</artifactId>
+      <version>8.5.11.3</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -152,32 +157,29 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-dependency-plugin</artifactId>
-          <version>2.3</version>
-          <executions>
-              <execution>
-                  <phase>package</phase>
-                  <goals><goal>copy</goal></goals>
-                  <configuration>
-                      <artifactItems>
-                          <artifactItem>
-                              <groupId>com.github.heroku</groupId>
-                              <artifactId>webapp-runner</artifactId>
-                              <version>8.5.47.2</version>
-                              <destFileName>webapp-runner.jar</destFileName>
-                          </artifactItem>
-                      </artifactItems>
-                  </configuration>
-              </execution>
-          </executions>
-      </plugin>
         <configuration>
           <source>8</source>
           <target>8</target>
         </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals><goal>copy</goal></goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>com.heroku</groupId>
+                  <artifactId>webapp-runner</artifactId>
+                  <version>8.5.11.3</version>
+                  <destFileName>webapp-runner.jar</destFileName>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
+
+
     </plugins>
   </build>
 </project>
