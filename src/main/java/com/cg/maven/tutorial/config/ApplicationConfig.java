@@ -85,7 +85,9 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
         properties.setProperty("hibernate.connection.useUnicode","true");
         properties.setProperty("hibernate.connection.characterEncoding","UTF-8");
         properties.setProperty("hibernate.connection.charset","UTF-8");
-        properties.setProperty("hibernate.dialect","org.hibernate.dialect.MySQL5Dialect");
+        //properties.setProperty("hibernate.dialect","org.hibernate.dialect.MySQL5Dialect");
+        //PostgreSQLDialect
+        properties.setProperty("hibernate.dialect","org.hibernate.dialect.PostgreSQLDialect");
         return  properties;
     }
 
@@ -99,10 +101,16 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     @Bean
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/demojpa?useUnicode=true&characterEncoding=UTF-8");
-        dataSource.setUsername("root");
-        dataSource.setPassword("1qaz0plm");
+        //dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        //dataSource.setUrl("jdbc:mysql://localhost:3306/demojpa?useUnicode=true&characterEncoding=UTF-8");
+        //dataSource.setUsername("root");
+        //dataSource.setPassword("1qaz0plm");
+
+        dataSource.setDriverClassName("org.postgresql.Driver");
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/demo");
+        dataSource.setUsername("postgres");
+        dataSource.setPassword("postgres");
+
         return  dataSource;
     }
 
